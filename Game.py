@@ -53,7 +53,7 @@ class Critter:
 
     def eat(self, food=0):
         self.food=food
-        food=int(input('Введите сколько еды вы хотите дать'))
+        food=int(input('Введите сколько еды вы хотите дать: '))
         print("Мррр...  Спасибо!")
         self.hunger -= food
         if self.hunger < 0:
@@ -62,7 +62,7 @@ class Critter:
 
     def play(self, fun=0):
         self.fun=fun
-        fun=int(input('Введите сколько хотите провести со зверушкой'))
+        fun=int(input('Введите сколько хотите провести со зверушкой: '))
         print("Уиии!")
         self.boredom -= fun
         if self.boredom < 0:
