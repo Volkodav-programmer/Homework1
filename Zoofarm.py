@@ -73,15 +73,12 @@ class Critter:
 
 def main():
     import random
-    crit1_name = input("Как вы назовете свою первую зверюшку?: ")
-    crit2_name = input("Как вы назовете свою вторую зверюшку?: ")
-    crit3_name = input("Как вы назовете свою третью зверюшку?: ")
-    crit4_name = input("Как вы назовете свою четвёртую зверюшку?: ")
-    crit1 = Critter(crit1_name, random.randint(1, 10), random.randint(1,10))
-    crit2 = Critter(crit2_name, random.randint(1, 10), random.randint(1,10))
-    crit3 = Critter(crit3_name, random.randint(1, 10), random.randint(1,10))
-    crit4 = Critter(crit4_name, random.randint(1, 10), random.randint(1,10))
-    animals=[crit1, crit2, crit3, crit4]
+    count=int(input('Введите изначальное количество зверюшек на ферме: '))
+    animals=[]
+    for i in range(count):
+        crit_name = input("Как вы назовете свою зверюшку?: ")
+        crit = Critter(crit_name, random.randint(1, 10), random.randint(1,10))
+        animals.append(crit)
 
     choice = None  
     while choice != "0":
@@ -93,6 +90,7 @@ def main():
         1 - Узнать о самочувствии зверюшек
         2 - Покормить зверюшек
         3 - Поиграть со зверюшками
+        4 - Купить еще одну зверюшку
         """)
     
         choice = input("Ваш выбор: ")
@@ -121,6 +119,12 @@ def main():
             for i in animals:
                 animal=i
                 animal.play(fun)
+
+        # Купить зверюшку
+        elif choice=='4':
+            crit_name=input('Введите имя новой зверюшки: ')
+            crit = Critter(crit_name, random.randint(1, 10), random.randint(1,10))
+            animals.append(crit)
 
         # непонятный пользовательский ввод
         else:
