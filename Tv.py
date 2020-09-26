@@ -4,8 +4,7 @@ class Tv:
         self.channel=channel
         self.volume=volume
 
-    def set_volume(self, volume=0):
-        volume=int(input('Введите какую громкость вы хотите поставить: '))
+    def set_volume(self, volume):
         self.volume=volume
         if self.volume>100:
             print('Ишь чего захотел')
@@ -15,8 +14,7 @@ class Tv:
             self.volume=0
 
 
-    def set_channel(self, channel=0):
-        channel=int(input('Введите какой канал вы хотите включить: '))
+    def set_channel(self, channel):
         self.channel=channel
         if self.channel>225:
             print('Такого канала не существует')
@@ -36,7 +34,6 @@ def main():
         ('''
         *Шумит по телевизорски*
                 Меню
-
         0-выключить телевизор
         1-изменить громкость
         2-изменить канал
@@ -53,21 +50,21 @@ def main():
         #Изменение звука
 
         elif choice=='1':
-            tv.set_volume()
+            volume=int(input('Введите громкость: '))
+            tv.set_volume(volume)
 
         #Изменение канала
            
         elif choice=='2':
-            tv.set_channel()
+            channel=int(input('Введите канал: '))
+            tv.set_channel(channel)
         
         #Просмотр параметров
         elif choice=='3':
             tv.talk()
 
         else:
-            print('Ты чё, выбери пункт из меню', choice)
+            print('Ты чё, выбери пункт из меню')
 
 main()
-        
-
         
